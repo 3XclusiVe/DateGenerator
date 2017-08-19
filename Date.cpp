@@ -16,13 +16,33 @@ std::string Date::Generate() {
 
     std::string delimeter = ".";
     std::string yearString = std::to_string(year);
-    std::string monthString = std::to_string(month);
-    std::string dayString = std::to_string(day);
+    std::string monthString = getMonthString(month);
+    std::string dayString = getDayString(day);
 
     std::string date = dayString + delimeter + monthString + delimeter + yearString;
 
     return date;
 }
+
+std::string Date::getMonthString(int month) {
+    std::string monthString = std::to_string(month);
+    if(monthString.size() < 2) {
+        monthString = "0" + monthString;
+    }
+    return monthString;
+}
+
+std::string Date::getDayString(int day) {
+    std::string dayString = std::to_string(day);
+    if(dayString.size() < 2) {
+        dayString = "0" + dayString;
+    }
+    return dayString;
+}
+
+
+
+
 
 
 

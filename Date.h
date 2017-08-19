@@ -10,12 +10,16 @@
 
 class Date {
 
-protected:
+private:
     DateGenerator mDateGenerator = DateGenerator();
 
 public:
     Date();
     std::string Generate();
+
+private:
+    std::string getMonthString(int month);
+    std::string getDayString(int day);
 
 };
 
