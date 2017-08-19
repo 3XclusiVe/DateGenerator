@@ -17,7 +17,7 @@ public:
     DateGenerator();
     ~DateGenerator();
     int GenerateYear();
-    int GenerateMonth();
+    int GenerateMonth(int year);
     int GenerateDay(int year, int month);
 
 private:

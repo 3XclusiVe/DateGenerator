@@ -12,7 +12,7 @@ Date::Date() {
 
 std::string Date::Generate() {
     int year = this->mDateGenerator.GenerateYear();
-    int month = this->mDateGenerator.GenerateMonth();
+    int month = this->mDateGenerator.GenerateMonth(year);
     int day = this->mDateGenerator.GenerateDay(year, month);
 
     if(isWeekEnd(day, month, year)) {

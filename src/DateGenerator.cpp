@@ -15,8 +15,11 @@ int DateGenerator::GenerateYear() {
 
 }
 
-int DateGenerator::GenerateMonth() {
-    int minMonth = getCurrentMonth();
+int DateGenerator::GenerateMonth(int year) {
+    int minMonth = 1;
+    if(year == getCurrentYear()) {
+        minMonth = getCurrentMonth();
+    }
     int maxMonth = 12;
     int randomMonth = mRandom->Range(minMonth, maxMonth);
     return randomMonth;
