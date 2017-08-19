@@ -24,6 +24,8 @@ private:
     int getCurrentYear();
     bool isLong(int month);
     bool isLeapYear(int year);
+    int getCurrentDay();
+    int getCurrentMonth();
 };
 
 

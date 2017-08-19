@@ -4,7 +4,7 @@
 #include "Date.h"
 #include "TestDateGenerator.h"
 
-using namespace std;
+
 
 int main() {
 
@@ -20,9 +20,10 @@ int main() {
         std::string date = DateGenerator.Generate();
 
         //Вывод на экран и пауза
-        cout << date << std::endl;
+        std::cout << date << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 
     return 0;
 }
+

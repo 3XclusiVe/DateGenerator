@@ -16,7 +16,7 @@ int DateGenerator::GenerateYear() {
 }
 
 int DateGenerator::GenerateMonth() {
-    int minMonth = 1;
+    int minMonth = getCurrentMonth();
     int maxMonth = 12;
     int randomMonth = mRandom->Range(minMonth, maxMonth);
     return randomMonth;
@@ -24,6 +24,9 @@ int DateGenerator::GenerateMonth() {
 
 int DateGenerator::GenerateDay(int year, int month) {
     int minDay = 1;
+    if(month == getCurrentMonth()) {
+        minDay = getCurrentDay() + 1;
+    }
     int maxDay = 30;
 
     if (isLong(month)) {
@@ -46,6 +49,18 @@ int DateGenerator::getCurrentYear() {
     time_t t = time(0);
     struct tm *now = localtime(&t);
     return now->tm_year + 1900;
+}
+
+int DateGenerator::getCurrentMonth() {
+    time_t t = time(0);
+    struct tm *now = localtime(&t);
+    return now->tm_mon + 1;
+}
+
+int DateGenerator::getCurrentDay() {
+    time_t t = time(0);
+    struct tm *now = localtime(&t);
+    return now->tm_mday;
 }
 
 bool DateGenerator::isLong(int month) {
@@ -86,6 +101,8 @@ DateGenerator::DateGenerator() {
 DateGenerator::~DateGenerator() {
     delete this->mRandom;
 }
+
+
 
 
 

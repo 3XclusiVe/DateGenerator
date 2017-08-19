@@ -20,7 +20,8 @@ public:
 private:
     std::string getMonthString(int month);
     std::string getDayString(int day);
-
+    bool isWeekEnd(int day, int month, int year);
+    int DayOfWeek(int day, int month, int year);
 };
 
 
