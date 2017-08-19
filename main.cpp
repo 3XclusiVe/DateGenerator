@@ -1,8 +1,15 @@
 #include <iostream>
+#include <random>
+#include "Date.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
+
+    Date DateGenerator = Date();
+    std::string date = DateGenerator.Generate();
+
+    cout << date << std::endl;
+
     return 0;
 }
