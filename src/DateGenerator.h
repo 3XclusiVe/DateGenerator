@@ -6,10 +6,16 @@
 #define DATEGENERATOR_DATEGENERATOR_H
 
 
+#include "Random.h"
+
 class DateGenerator  {
+
+protected:
+    Random* mRandom;
 
 public:
     DateGenerator();
+    ~DateGenerator();
     int GenerateYear();
     int GenerateMonth();
     int GenerateDay(int year, int month);

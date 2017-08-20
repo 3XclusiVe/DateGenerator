@@ -4,17 +4,12 @@
 
 #include <ctime>
 #include "DateGenerator.h"
-#include "Random.h"
-
-DateGenerator::DateGenerator() {
-
-}
 
 int DateGenerator::GenerateYear() {
 
     int maxYear = 2100;
     int currentYear = getCurrentYear();
-    int randomYear = Random::Range(currentYear, maxYear);
+    int randomYear = mRandom->Range(currentYear, maxYear);
 
     return randomYear;
 
@@ -23,7 +18,7 @@ int DateGenerator::GenerateYear() {
 int DateGenerator::GenerateMonth() {
     int minMonth = 1;
     int maxMonth = 12;
-    int randomMonth = Random::Range(minMonth, maxMonth);
+    int randomMonth = mRandom->Range(minMonth, maxMonth);
     return randomMonth;
 }
 
@@ -42,13 +37,13 @@ int DateGenerator::GenerateDay(int year, int month) {
         }
     }
 
-    int randomDay = Random::Range(minDay, maxDay);
+    int randomDay = mRandom->Range(minDay, maxDay);
 
     return randomDay;
 }
 
 int DateGenerator::getCurrentYear() {
-    time_t t = time(0);   // get time now
+    time_t t = time(0);
     struct tm *now = localtime(&t);
     return now->tm_year + 1900;
 }
@@ -83,6 +78,19 @@ bool DateGenerator::isLeapYear(int year) {
         return false;
     }
 }
+
+DateGenerator::DateGenerator() {
+    this->mRandom = new Random();
+}
+
+DateGenerator::~DateGenerator() {
+    delete this->mRandom;
+}
+
+
+
+
+
 
 
 

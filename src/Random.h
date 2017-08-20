@@ -8,7 +8,7 @@
 
 class Random {
 public:
-    static int Range(int min, int max);
+    virtual int Range(int min, int max);
 };
 
 

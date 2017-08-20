@@ -2,10 +2,16 @@
 #include <random>
 #include <thread>
 #include "Date.h"
+#include "TestDateGenerator.h"
 
 using namespace std;
 
 int main() {
+
+    TestDateGenerator testDateGenerator = TestDateGenerator();
+    testDateGenerator.TestMaxDayInFebruary();
+    testDateGenerator.TestMaxDayInFebruaryWhenYearIsLeap();
+    testDateGenerator.TestMaxDayinMonths();
 
     while (true) {
         Date DateGenerator = Date();
